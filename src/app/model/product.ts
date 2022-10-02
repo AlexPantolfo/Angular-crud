@@ -1,7 +1,8 @@
 export interface Product {
     'name': 'name',
     'category': 'category',
-    'freshness': 'freshness',
+    'date': 'date',
+    'productFreshness': 'freshness',
     'price': 'price',
     'comment': 'comment',
 }

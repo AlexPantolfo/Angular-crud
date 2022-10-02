@@ -29,27 +29,28 @@ export class NewProductDialogComponent implements OnInit {
   productform = new FormGroup({
     name: new FormControl('', [Validators.required]),
     category: new FormControl('', [Validators.required]),
-    freshness: new FormControl('', [Validators.required]),
+    date: new FormControl('', [Validators.required]),
+    productFreshness: new FormControl('', [Validators.required]),
     price: new FormControl('', [Validators.required]),
     comment: new FormControl('', [Validators.required])
   })
 
 
   formEdit() {
-    this.productform.patchValue({
-      name: this.data.name,
-      category: this.data.category,
-      freshness: this.data.freshness,
-      price: this.data.price,
-      comment: this.data.comment
-    })
+    this.productform.controls['name'].setValue(this.data.name)
+    this.productform.controls['category'].setValue(this.data.category)
+    this.productform.controls['date'].setValue(this.data.date)
+    this.productform.controls['productFreshness'].setValue(this.data.productFreshness)
+    this.productform.controls['price'].setValue(this.data.price)
+    this.productform.controls['comment'].setValue(this.data.comment)
   }
 
   Save() {
     let product: Product = {
       'name': this.productform.get('name')?.value,
       'category': this.productform.get('category')?.value,
-      'freshness': this.productform.get('freshness')?.value,
+      'date': this.productform.get('date')?.value,
+      'productFreshness': this.productform.get('freshness')?.value,
       'price': this.productform.get('price')?.value,
       'comment': this.productform.get('comment')?.value,
     }
@@ -65,7 +66,7 @@ export class NewProductDialogComponent implements OnInit {
         this.dialogRef.close();
       },
       complete: () => {
-        //window.location.reload();
+        window.location.reload();
       }
     })
   }
