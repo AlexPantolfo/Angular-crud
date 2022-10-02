@@ -19,7 +19,6 @@ export class NewProductDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
-    console.log('data: ', this.data)
     if (this.data) {
       this.formEdit();
     }
@@ -54,8 +53,6 @@ export class NewProductDialogComponent implements OnInit {
       'price': this.productform.get('price')?.value,
       'comment': this.productform.get('comment')?.value,
     }
-
-    console.log('save: ', product)
 
     this.apiservice.postProduct(product).subscribe({
       error: () => {
