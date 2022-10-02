@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Add Product Form</h1>
+<h1 mat-dialog-title>{{(this.data ? 'Edit Product' : 'Add Product')}}</h1>
 <div [formGroup]="productform" class="mat-dialog-contend">
     <mat-form-field appearance="outline">
         <mat-label>Product Name</mat-label>
